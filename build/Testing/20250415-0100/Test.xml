@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="(empty)"
+	BuildStamp="20250415-0100-Experimental"
+	Name="(empty)"
+	Generator="ctest-3.26.4"
+	CompilerName=""
+	CompilerVersion=""
+	OSName="Windows"
+	Hostname="LAPTOP-0MO05S3M"
+	OSRelease=" Personal"
+	OSVersion=" (Build 9200)"
+	OSPlatform="AMD64"
+	Is64Bits="1"
+	VendorString=""
+	VendorID="Unknown Manufacturer"
+	FamilyID="0"
+	ModelID="0"
+	ProcessorCacheSize="0"
+	NumberOfLogicalCPU="16"
+	NumberOfPhysicalCPU="8"
+	TotalVirtualMemory="15889"
+	TotalPhysicalMemory="7599"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="2895"
+	>
+	<Testing>
+		<StartDateTime>Apr 15 07:09 Bangladesh Standard Time</StartDateTime>
+		<StartTestTime>1744679341</StartTestTime>
+		<TestList/>
+		<EndDateTime>Apr 15 07:09 Bangladesh Standard Time</EndDateTime>
+		<EndTestTime>1744679341</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>
