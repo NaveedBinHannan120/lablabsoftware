@@ -7,19 +7,14 @@ class Shape {
 public:
     virtual double area() const = 0;
     virtual ~Shape() {}
-};
-
-
-class Circle : public Shape {
-
-    double radius;
+};class Circle : public Shape {
+ double radius;
 public:
     Circle(double r) : radius(r) {}
     double area() const override {
         return M_PI * radius * radius;
     }
 };
-
 class Square : public Shape {
     double side;
 public:
