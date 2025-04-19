@@ -1,63 +1,63 @@
 #include <iostream>
 #include <memory>
-#include <cmath>
+#include <string>
 
 
-class Shape {
+class Vehicle {
 public:
-    virtual double area() const = 0;
-    virtual ~Shape() {}
-};class Circle : public Shape {
- double radius;
-public:
-    Circle(double r) : radius(r) {}
-    double area() const override {
-        return M_PI * radius * radius;
-    }
-};
-class Square : public Shape {
-    double side;
-public:
-    Square(double s) : side(s) {}
-    double area() const override {
-        return side * side;
-    }
-};
-
-class Rectangle : public Shape {
-    double width;
-    double height;
-public:
-    Rectangle(double w, double h) : width(w), height(h) {}
-    double area() const override {
-        return width * height;
-    }
+    virtual void drive() const = 0;
+    virtual std::string getType() const = 0;
+    virtual ~Vehicle() = default;
 };
 
 
-class ShapeFactory {
+class Car : public Vehicle {
 public:
-    static std::unique_ptr<Shape> createShape(const std::string& type, double a, double b = 0) {
-        if (type == "circle") {
-            return std::make_unique<Circle>(a);
-        } else if (type == "square") {
-            return std::make_unique<Square>(a);
-        } else if (type == "rectangle") {
-            return std::make_unique<Rectangle>(a, b);
-        } else {
-            return nullptr;
+    void drive() const override {
+        std::cout << "Driving a car!" << std::endl;
+    }
+
+    std::string getType() const override {
+        return "Car";
+    }
+};
+
+class Bike : public Vehicle {
+public:
+    void drive() const override {
+        std::cout << "Riding a bike!" << std::endl;
+    }
+
+    std::string getType() const override {
+        return "Bike";
+    }
+};
+
+class Truck : public Vehicle {
+public:
+    void drive() const override {
+        std::cout << "Driving a truck!" << std::endl;
+    }
+
+    std::string getType() const override {
+        return "Truck";
+    }
+};
+
+class VehicleFactory {
+public:
+    enum class VehicleType { CAR, BIKE, TRUCK };
+
+    static std::unique_ptr<Vehicle> createVehicle(VehicleType type) {
+        switch (type) {
+            case VehicleType::CAR:
+                return std::make_unique<Car>();
+            case VehicleType::BIKE:
+                return std::make_unique<Bike>();
+            case VehicleType::TRUCK:
+                return std::make_unique<Truck>();
+            default:
+                return nullptr;
         }
     }
 };
-
-int main() {
-    auto circle = ShapeFactory::createShape("circle", 89);
-    auto square = ShapeFactory::createShape("square", 49);
-    auto rectangle = ShapeFactory::createShape("rectangle", 4, 6);
-
-    if (circle) std::cout << "Circle area: " << circle->area() << std::endl;
-    if (square) std::cout << "Square area: " << square->area() << std::endl;
-    if (rectangle) std::cout << "Rectangle area: " << rectangle->area() << std::endl;
-
-    return 0;
-}
